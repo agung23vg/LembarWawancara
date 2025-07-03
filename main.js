@@ -32,7 +32,6 @@ document.getElementById('otcForm').addEventListener('submit', function(event) {
       return;
     }
 
-    // Ambil teks label tanpa nomor di depan
     const questionText = question.querySelector('label').innerText.trim();
 
     message += `${qNum}. ${questionText}%0A`;
@@ -42,7 +41,7 @@ document.getElementById('otcForm').addEventListener('submit', function(event) {
 
   if (!valid) return;
 
-  const phoneNumber = "6289656801037";
+  const phoneNumber = "6283874202571"; // nomor tujuan WA
   const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   window.open(whatsappURL, "_blank");
