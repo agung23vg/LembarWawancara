@@ -38,7 +38,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const encodedMessage = encodeURIComponent(pesan);
 
     // Buat link WhatsApp
-    const waLink = `https://wa.me/${noWa}?text=${encodedMessage}`;
+    const waLink = `https://web.whatsapp.com/send?phone=${noWa}&text=${encodedMessage}`;
+
 
     // Buka tab baru
     window.open(waLink, '_blank');
