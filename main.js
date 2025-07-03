@@ -1,34 +1,37 @@
 document.getElementById("otcForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
-  // Ambil data identitas
-  const namaApotek = document.getElementById("namaApotek").value.trim();
-  const namaTVF = document.getElementById("namaTVF").value.trim();
-  const tanggalObservasi = document.getElementById("tanggalObservasi").value;
-  const waktuObservasi = document.getElementById("waktuObservasi").value;
+  // Ambil data umum dari lembar wawancara
+  const namaApotek = document.querySelector('input[name="namaApotek"]').value.trim();
+  const namaTVF = document.querySelector('input[name="namaTVF"]').value.trim();
+  const tanggalObservasi = document.querySelector('input[name="tanggalObservasi"]').value;
+  const waktuObservasi = document.querySelector('input[name="waktuObservasi"]').value;
 
-  let message = "*Lembar Wawancara Rekomendasi Obat OTC*\n\n";
-  message += `*Nama Apotek:* ${namaApotek}\n`;
-  message += `*Nama TVF:* ${namaTVF}\n`;
-  message += `*Tanggal Observasi:* ${tanggalObservasi}\n`;
-  message += `*Waktu Observasi:* ${waktuObservasi}\n\n`;
+  // Ambil semua pertanyaan
+  const questionDivs = document.querySelectorAll(".question");
+  let hasil = `*Formulir Rekomendasi Obat OTC*\n\n`;
+  hasil += `*Nama Apotek:* ${namaApotek}\n`;
+  hasil += `*Nama TVF:* ${namaTVF}\n`;
+  hasil += `*Tanggal Observasi:* ${tanggalObservasi}\n`;
+  hasil += `*Waktu Observasi:* ${waktuObservasi}\n\n`;
 
-  // Loop semua pertanyaan
-  for (let i = 1; i <= 20; i++) {
-    const radios = document.querySelector(`input[name="recommend${i}"]:checked`);
-    const reason = document.querySelector(`textarea[name="reasonText${i}"]`).value.trim();
+  questionDivs.forEach((questionDiv, index) => {
+    const pertanyaan = questionDiv.querySelector("label").innerText.trim();
+    const jawabanInput = questionDiv.querySelector('input[type="radio"]:checked');
+    const jawaban = jawabanInput ? jawabanInput.value : "(Belum diisi)";
+    const alasan = questionDiv.querySelector("textarea").value.trim() || "(Tidak ada alasan)";
 
-    const answer = radios ? radios.value : "Tidak dijawab";
-    message += `*Pertanyaan ${i}:* ${answer}\n`;
-    message += `_Alasan:_ ${reason}\n\n`;
-  }
+    hasil += `*${index + 1}. ${pertanyaan}*\n`;
+    hasil += `Jawaban: ${jawaban}\n`;
+    hasil += `Alasan: ${alasan}\n\n`;
+  });
 
-  // Encode untuk URL WhatsApp
-  const encodedMessage = encodeURIComponent(message);
+  // Encode hasil agar bisa dikirim ke WhatsApp
+  const encodedMessage = encodeURIComponent(hasil);
 
-  // Ganti dengan nomor tujuan
-  const phoneNumber = "6283874202571";
+  // Nomor WhatsApp tujuan (ganti sesuai kebutuhan)
+  const nomorWA = "6283874202571"; // contoh: 628... tanpa +
+  const waLink = `https://wa.me/${nomorWA}?text=${encodedMessage}`;
 
-  // Buka WhatsApp
-  window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
+  window.open(waLink, "_blank");
 });
