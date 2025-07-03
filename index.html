@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulir Rekomendasi Obat OTC</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+   <div class="interview-sheet">
+  <h2>Lembar Wawancara</h2>
+  <p><strong>Judul Penelitian:</strong></p>
+  <p> Peran TVF dalam Membantu Apoteker Swamedikasi Obat OTC di Apotek Kec. Serpong</p>
+  <table>
+    <tr>
+      <td>Nama Apotek</td>
+      <td>:</td>
+      <td><input type="text" id="namaApotek" required></td>
+    </tr>
+    <tr>
+      <td>Nama TVF yang diamati</td>
+      <td>:</td>
+      <td><input type="text" id="namaTVF" required></td>
+    </tr>
+    <tr>
+      <td>Tanggal Observasi</td>
+      <td>:</td>
+      <td><input type="date" id="tanggalObservasi" required></td>
+    </tr>
+    <tr>
+      <td>Waktu Observasi</td>
+      <td>:</td>
+      <td><input type="time" id="waktuObservasi" required></td>
+    </tr>
+  </table>
+</div>
+
+
+  <div class="form-container">
+    <form id="otcForm">
+
+      <!-- Pertanyaan 1–20 -->
+      <!-- Contoh pertanyaan, silakan ganti teksnya sesuai kebutuhan -->
+
+      <!-- Pertanyaan 1 -->
+      <div class="question">
+        <label>1. Apakah Anda memberikan rekomendasi obat OTC berdasarkan keluhan umum pasien?</label>
+        <div class="options">
+          <label><input type="radio" name="recommend1" value="Ya" /> Ya</label>
+          <label><input type="radio" name="recommend1" value="Tidak" /> Tidak</label>
+        </div>
+        <div class="reason" id="reason1">
+          <label>Alasan jawaban Anda</label>
+          <textarea name="reasonText1" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 2 -->
+      <div class="question">
+        <label>2. Apakah Anda merujuk pasien ke apoteker jika gejala pasien tergolong berat atau tidak umum?</label>
+        <div class="options">
+          <label><input type="radio" name="recommend2" value="Ya" /> Ya</label>
+          <label><input type="radio" name="recommend2" value="Tidak" /> Tidak</label>
+        </div>
+        <div class="reason" id="reason2">
+          <label>Alasan jawaban Anda</label>
+          <textarea name="reasonText2" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 3 -->
+      <div class="question">
+        <label>3. Apakah Anda melibatkan pasien untuk memilih obat yang direkomendasikan?</label>
+        <div class="options">
+          <label><input type="radio" name="recommend3" value="Ya" /> Ya</label>
+          <label><input type="radio" name="recommend3" value="Tidak" /> Tidak</label>
+        </div>
+        <div class="reason" id="reason3">
+          <label>Alasan jawaban Anda</label>
+          <textarea name="reasonText3" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 4 -->
+      <div class="question">
+        <label>4. Apakah Anda mengetahui bahwa obat OTC dapat diberikan tanpa resep dokter?</label>
+        <div class="options">
+          <label><input type="radio" name="recommend4" value="Ya" /> Ya</label>
+          <label><input type="radio" name="recommend4" value="Tidak" /> Tidak</label>
+        </div>
+        <div class="reason" id="reason4">
+          <label>Alasan jawaban Anda</label>
+          <textarea name="reasonText4" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 5 -->
+      <div class="question">
+        <label>5. Apakah Anda hanya memberikan obat OTC untuk keluhan ringan seperti batuk, demam, dan nyeri?</label>
+        <div class="options">
+          <label><input type="radio" name="recommend5" value="Ya" /> Ya</label>
+          <label><input type="radio" name="recommend5" value="Tidak" /> Tidak</label>
+        </div>
+        <div class="reason" id="reason5">
+          <label>Alasan jawaban Anda</label>
+          <textarea name="reasonText5" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 6 -->
+      <div class="question">
+        <label>6. Apakah salep antiseptik seperti povidone iodine termasuk obat bebas?</label>
+        <div class="options">
+          <label><input type="radio" name="recommend6" value="Ya" /> Ya</label>
+          <label><input type="radio" name="recommend6" value="Tidak" /> Tidak</label>
+        </div>
+        <div class="reason" id="reason6">
+          <label>Alasan jawaban Anda</label>
+          <textarea name="reasonText6" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 7 -->
+      <div class="question">
+        <label>7. Apakah Anda menjelaskan kepada pasien tentang logo warna pada kemasan obat saat memberikan obat OTC?</label>
+        <div class="options">
+          <label><input type="radio" name="recommend7" value="Ya" /> Ya</label>
+          <label><input type="radio" name="recommend7" value="Tidak" /> Tidak</label>
+        </div>
+        <div class="reason" id="reason7">
+          <label>Alasan jawaban Anda</label>
+          <textarea name="reasonText7" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 8 -->
+      <div class="question">
+        <label>8. Apakah obat OTC hanya golongan bebas saja?</label>
+        <div class="options">
+          <label><input type="radio" name="recommend8" value="Ya" /> Ya</label>
+          <label><input type="radio" name="recommend8" value="Tidak" /> Tidak</label>
+        </div>
+        <div class="reason" id="reason8">
+          <label>Alasan jawaban Anda</label>
+          <textarea name="reasonText8" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 9 -->
+      <div class="question">
+        <label>9. Apakah Anda menjelaskan  aturan pakai obat secara lisan kepada pasien?</label>
+        <div class="options">
+          <label><input type="radio" name="recommend9" value="Ya" /> Ya</label>
+          <label><input type="radio" name="recommend9" value="Tidak" /> Tidak</label>
+        </div>
+        <div class="reason" id="reason9">
+          <label>Alasan jawaban Anda</label>
+          <textarea name="reasonText9" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 10 -->
+      <div class="question">
+        <label>10. Apakah Anda memberi informasi mengenai efek samping obat yang sering timbul dan cara mengatasinya?</label>
+        <div class="options">
+          <label><input type="radio" name="recommend10" value="Ya" /> Ya</label>
+          <label><input type="radio" name="recommend10" value="Tidak" /> Tidak</label>
+        </div>
+        <div class="reason" id="reason10">
+          <label>Alasan jawaban Anda</label>
+          <textarea name="reasonText10" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 11 -->
+      <div class="question">
+        <label>11.Apakah Anda memberikan informasi khusus jika pasien adalah anak-anak atau lansia?</label>
+        <div class="options">
+          <label><input type="radio" name="recommend11" value="Ya" /> Ya</label>
+          <label><input type="radio" name="recommend11" value="Tidak" /> Tidak</label>
+        </div>
+        <div class="reason" id="reason11">
+          <label>Alasan jawaban Anda</label>
+          <textarea name="reasonText11" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 12 -->
+      <div class="question">
+        <label>12. Apakah Anda menanyakan riwayat alergi atau penyakit tertentu kepada pasien?</label>
+        <div class="options">
+          <label><input type="radio" name="recommend12" value="Ya" /> Ya</label>
+          <label><input type="radio" name="recommend12" value="Tidak" /> Tidak</label>
+        </div>
+        <div class="reason" id="reason12">
+          <label>Alasan jawaban Anda</label>
+          <textarea name="reasonText12" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 13 -->
+      <div class="question">
+        <label>13. Apakah Anda yakin bahwa semua obat flu yang sering Anda berikan tergolong obat bebas biasa (bukan bebas terbatas)?</label>
+        <div class="options">
+          <label><input type="radio" name="recommend13" value="Ya" /> Ya</label>
+          <label><input type="radio" name="recommend13" value="Tidak" /> Tidak</label>
+        </div>
+        <div class="reason" id="reason13">
+          <label>Alasan jawaban Anda</label>
+          <textarea name="reasonText13" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 14 -->
+      <div class="question">
+        <label>14. Apakah Anda pernah memberikan CTM atau OBH kepada pasien tanpa menyebutkan bahwa itu obat bebas terbatas?</label>
+        <div class="options">
+          <label><input type="radio" name="recommend14" value="Ya" /> Ya</label>
+          <label><input type="radio" name="recommend14" value="Tidak" /> Tidak</label>
+        </div>
+        <div class="reason" id="reason14">
+          <label>Alasan jawaban Anda</label>
+          <textarea name="reasonText14" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 15 -->
+      <div class="question">
+        <label>15. Apakah Anda meminta pasien membaca aturan pakai yang tercantum di kemasan obat OTC?</label>
+        <div class="options">
+          <label><input type="radio" name="recommend15" value="Ya" /> Ya</label>
+          <label><input type="radio" name="recommend15" value="Tidak" /> Tidak</label>
+        </div>
+        <div class="reason" id="reason15">
+          <label>Alasan jawaban Anda</label>
+          <textarea name="reasonText15" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 16 -->
+      <div class="question">
+        <label>16. Apakah Anda menjelaskan informasi tambahan untuk obat dengan logo biru (bebas terbatas)?</label>
+        <div class="options">
+          <label><input type="radio" name="recommend16" value="Ya" /> Ya</label>
+          <label><input type="radio" name="recommend16" value="Tidak" /> Tidak</label>
+        </div>
+        <div class="reason" id="reason16">
+          <label>Alasan jawaban Anda</label>
+          <textarea name="reasonText16" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 17 -->
+      <div class="question">
+        <label>17. Apakah Anda mengetahui bahwa Anda tidak boleh mengganti obat dalam resep tanpa persetujuan apoteker?</label>
+        <div class="options">
+          <label><input type="radio" name="recommend17" value="Ya" /> Ya</label>
+          <label><input type="radio" name="recommend17" value="Tidak" /> Tidak</label>
+        </div>
+        <div class="reason" id="reason17">
+          <label>Alasan jawaban Anda</label>
+          <textarea name="reasonText17" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 18 -->
+      <div class="question">
+        <label>18. Apakah Anda rutin mendapatkan pengarahan atau evaluasi dari apoteker?</label>
+        <div class="options">
+          <label><input type="radio" name="recommend18" value="Ya" /> Ya</label>
+          <label><input type="radio" name="recommend18" value="Tidak" /> Tidak</label>
+        </div>
+        <div class="reason" id="reason18">
+          <label>Alasan jawaban Anda</label>
+          <textarea name="reasonText18" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 19 -->
+      <div class="question">
+        <label>19. Apakah Anda merasa percaya diri memberikan edukasi obat kepada pasien sesuai dengan kewenangan?</label>
+        <div class="options">
+          <label><input type="radio" name="recommend19" value="Ya" /> Ya</label>
+          <label><input type="radio" name="recommend19" value="Tidak" /> Tidak</label>
+        </div>
+        <div class="reason" id="reason19">
+          <label>Alasan jawaban Anda</label>
+          <textarea name="reasonText19" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 20 -->
+      <div class="question">
+        <label>20. Apakah Anda pernah mengikuti pelatihan terkait pelayanan swamedikasi?</label>
+        <div class="options">
+          <label><input type="radio" name="recommend20" value="Ya" /> Ya</label>
+          <label><input type="radio" name="recommend20" value="Tidak" /> Tidak</label>
+        </div>
+        <div class="reason" id="reason20">
+          <label>Alasan jawaban Anda</label>
+          <textarea name="reasonText20" rows="3"></textarea>
+        </div>
+      </div>
+
+      <button type="submit">Kirim ke WhatsApp</button>
+    </form>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

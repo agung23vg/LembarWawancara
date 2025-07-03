@@ -1,0 +1,152 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f2f7fb;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.form-container {
+  max-width: 800px;
+  margin: 30px auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+  text-align: center;
+  color: #4682b4;
+}
+
+.question {
+  margin-bottom: 25px;
+  background: #e8f0fe;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.question label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.options {
+  margin-bottom: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f0f6ff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.options label:hover {
+  background: #dce9f9;
+}
+
+.options input[type="radio"] {
+  transform: scale(1.2);
+  accent-color: #4682b4;
+  cursor: pointer;
+}
+
+.reason {
+  display: flex;
+  flex-direction: column;
+}
+
+.reason label {
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.reason textarea {
+  width: 100%;
+  resize: vertical;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+button {
+  background: #6c9bd2;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  display: block;
+  margin: 20px auto 0 auto;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #5a86b7;
+}
+
+/* Styling untuk Lembar Wawancara */
+.interview-sheet {
+  max-width: 800px;
+  margin: 30px auto;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.interview-sheet h2 {
+  text-align: center;
+  font-weight: bold;
+  color: #4682b4;
+  margin-bottom: 15px;
+}
+
+.interview-sheet table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.interview-sheet td {
+  padding: 8px;
+  vertical-align: top;
+}
+
+.interview-sheet input {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .form-container {
+    padding: 15px;
+  }
+
+  .options {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+}
