@@ -51,7 +51,7 @@ document.getElementById('otcForm').addEventListener('submit', function(event) {
       return;
     }
 
-    message += `P${qNum}. ${qText}\n`;
+    message += `${qText}\n`;
     message += `Jawaban: ${selected.value}\n`;
     message += `Alasan: ${reasonText}\n\n`;
   });
