@@ -1,23 +1,14 @@
-// Tampilkan kolom alasan saat radio diklik
-document.querySelectorAll('.options input[type="radio"]').forEach(radio => {
-  radio.addEventListener('change', () => {
-    const questionDiv = radio.closest('.question');
-    const reasonBox = questionDiv.querySelector('.reason');
-    reasonBox.style.display = 'block';
-  });
-});
-
-// Submit ke WhatsApp
 document.getElementById('otcForm').addEventListener('submit', function(event) {
   event.preventDefault();
 
-  // Data Lembar Wawancara
-  const namaApotek = document.getElementById('namaApotek').value || '-';
-  const namaTVF = document.getElementById('namaTVF').value || '-';
-  const tanggalObservasi = document.getElementById('tanggalObservasi').value || '-';
-  const waktuObservasi = document.getElementById('waktuObservasi').value || '-';
-
   let message = "Formulir Rekomendasi Obat OTC:%0A%0A";
+
+  // Data identitas
+  const namaApotek = document.getElementById("namaApotek").value.trim();
+  const namaTVF = document.getElementById("namaTVF").value.trim();
+  const tanggalObservasi = document.getElementById("tanggalObservasi").value;
+  const waktuObservasi = document.getElementById("waktuObservasi").value;
+
   message += `Nama Apotek: ${namaApotek}%0A`;
   message += `Nama TVF: ${namaTVF}%0A`;
   message += `Tanggal Observasi: ${tanggalObservasi}%0A`;
@@ -27,7 +18,6 @@ document.getElementById('otcForm').addEventListener('submit', function(event) {
 
   document.querySelectorAll('.question').forEach((question, index) => {
     const qNum = index + 1;
-    const qText = question.querySelector('label').innerText.trim();
     const selected = question.querySelector('input[type="radio"]:checked');
     const reasonText = question.querySelector('textarea').value.trim();
 
@@ -36,28 +26,24 @@ document.getElementById('otcForm').addEventListener('submit', function(event) {
       valid = false;
       return;
     }
-
     if (reasonText === "") {
       alert(`Mohon isi alasan untuk pertanyaan ${qNum}.`);
       valid = false;
       return;
     }
 
-    message += `${qNum}. ${qText}%0A`;
+    // Ambil teks label tanpa nomor di depan
+    const questionText = question.querySelector('label').innerText.trim();
+
+    message += `${qNum}. ${questionText}%0A`;
     message += `Jawaban: ${selected.value}%0A`;
     message += `Alasan: ${reasonText}%0A%0A`;
   });
 
   if (!valid) return;
 
-  // Nomor WA tujuan
-  const phoneNumber = "6283874202571";
-
-  // Deteksi perangkat
-  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-  const whatsappURL = isMobile
-    ? `https://wa.me/${phoneNumber}?text=${message}`
-    : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+  const phoneNumber = "6289656801037";
+  const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   window.open(whatsappURL, "_blank");
 });
